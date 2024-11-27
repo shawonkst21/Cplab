@@ -27,24 +27,16 @@ void faster()
 int32_t main()
 {
      faster();
-     int n;
-     cin>>n;
-     string s;
-     cin>>s;
-      transform(s.begin(), s.end(), s.begin(),
-              ::toupper);
-     map<char,int>m;
-     for(int i=0;i<n;i++)
+    testCase{
+     int a,b;
+     cin>>a>>b;
+     if(a%b==0)
      {
-          m[s[i]]++;
-     }
-     if(m.size()==26)
-     {
-          cout<<"YES"<<endl;
+          cout<<"0"<<endl;
      }
      else{
-          cout<<"NO"<<endl;
+          cout<<abs(b-(a%b))<<endl;
      }
-
+    }
              
 }
