@@ -41,17 +41,17 @@ struct st {
 
     // Function to combine values for non-leaf nodes
     inline ll combine(ll a, ll b) {
-        return min(a , b); 
+        return a + b; 
     }
 
     // Function to update node values
     inline void op(ll node) {
-        t[node] = min(t[lc] , t[rc]);
+        t[node] = t[lc] + t[rc];
     }
 
     // Build segment tree
     void build(ll node, ll st, ll en) {
-       // lazy[node] = 0;
+        lazy[node] = 0;
         if (st == en) {
             t[node] = a[st];
         } else {
@@ -81,9 +81,9 @@ struct st {
 
     // Query segment tree
     ll query(ll node, ll st, ll en, ll l, ll r) {
-       // push(node, st, en);
+        push(node, st, en);
         if (st > r || en < l) {
-            return INT_MAX;
+            return 0;
         }
         if (l <= st && en <= r) {
             return t[node];
@@ -95,21 +95,9 @@ struct st {
 } seg;
 int main()
 {
-     faster();
+	faster();
     testCase
     {
-        ll n,q;
-        cin>>n>>q;
-        for(int i=1;i<=n;i++)
-        {
-            cin>>a[i];
-        }
-        seg.build(1,1,n);
-        while(q--)
-        {
-            ll i,j;
-            cin>>i>>j;
-            cout<<seg.query(1,1,n,i,j)<<endl;
-        }
+        
     }
 }
