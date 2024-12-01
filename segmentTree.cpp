@@ -98,6 +98,24 @@ int main()
 	faster();
     testCase
     {
-        
+       int n,q;
+       cin>>n>>q;
+       seg.build(1,1,n);
+       while(q--)
+       {
+        int type;
+        cin>>type;
+        if(type==0)
+        {
+            int l,r,val;
+            cin>>l>>r>>val;
+            seg.update(1,1,n,l,r,val);
+        }
+        else{
+            int l,r;
+            cin>>l>>r;
+            cout<<seg.query(1,1,n,l,r)<<endl;
+        }
+       } 
     }
 }
