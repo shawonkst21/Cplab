@@ -101,7 +101,7 @@ void countDistinctSubstrings(const string &s) {
     }
     else
     {
-          cout<<ans[0].second;
+         // cout<<ans[0].second;
           for(int i=ans[0].second;i<ans[0].second+ans[0].first;i++)
           {
             cout<<s[i];
@@ -111,8 +111,13 @@ void countDistinctSubstrings(const string &s) {
  }
 int32_t main() {
     faster();
-    string s;
-    cin >> s;
-    s+='$';
- countDistinctSubstrings(s);
+    string s1,s2;
+    cin >> s1;
+    s2=s1;
+    reverse(s2.begin(),s2.end());
+    s1+='$';
+    s1+=s2;
+    s1+="#";
+    
+ countDistinctSubstrings(s1);
 }
